@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ProductContext from "../App";
 // Components
 import Item from './ShoppingCartItem';
 
@@ -12,6 +13,8 @@ const ShoppingCart = props => {
 
 	return (
 		<div className="shopping-cart">
+		<ProductContext.Consumer>
+		{}
 			{props.cart.map(item => (
 				<Item key={item.id} {...item} />
 			))}
@@ -20,6 +23,7 @@ const ShoppingCart = props => {
 				<p>Total: ${getCartTotal()}</p>
 				<button>Checkout</button>
 			</div>
+			</ProductContext.Consumer>
 		</div>
 	);
 };
